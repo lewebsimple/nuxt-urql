@@ -2,6 +2,16 @@
   "name": "nuxt-urql",
   "version": "0.1.0",
   "license": "MIT",
+  "exports": {
+    ".": {
+      "require": "./dist/module.cjs",
+      "import": "./dist/module.mjs"
+    },
+    "./plugin": {
+      "require": "./dist/plugin.cjs",
+      "import": "./dist/plugin.mjs"
+    }
+  },
   "main": "./dist/module.cjs",
   "module": "./dist/module.mjs",
   "types": "./dist/module.d.ts",
@@ -9,12 +19,15 @@
     "build": "unbuild"
   },
   "dependencies": {
+    "@urql/vue": "^0.6.0",
     "nuxt3": "latest"
   },
   "devDependencies": {
     "@lewebsimple/eslint-config": "^0.2.7",
-    "@nuxt/kit": "^0.6.4",
+    "@nuxt/kit-edge": "latest",
+    "@nuxt/types": "^2.15.8",
     "eslint": "7",
+    "pathe": "^0.2.0",
     "unbuild": "^0.5.11"
   },
   "eslintConfig": {

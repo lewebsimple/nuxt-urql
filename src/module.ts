@@ -1,4 +1,6 @@
-import { defineNuxtModule, Nuxt } from "@nuxt/kit";
+import { fileURLToPath } from "url";
+import { dirname, resolve } from "pathe";
+import { defineNuxtModule, Nuxt, addPluginTemplate } from "@nuxt/kit-edge";
 
 export type NuxtUrqlOptions = {
   url: string;
@@ -7,8 +9,14 @@ export type NuxtUrqlOptions = {
 export default defineNuxtModule<NuxtUrqlOptions>((nuxt: Nuxt) => ({
   name: "urql",
   configKey: "urql",
-  //defaults: {},
+  defaults: {
+    url: "https://graphql.org/swapi-graphql/",
+  },
   setup(options: NuxtUrqlOptions) {
-    console.log("TODO: Setup urql...");
+    const distDir = dirname(fileURLToPath(import.meta.url));
+    addPluginTemplate({
+      src: resolve(distDir, "plugin.mjs"),
+      options,
+    });
   },
 }));
