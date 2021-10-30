@@ -1,0 +1,23 @@
+{
+  "name": "nuxt-urql",
+  "version": "0.1.0",
+  "license": "MIT",
+  "main": "./dist/module.cjs",
+  "module": "./dist/module.mjs",
+  "types": "./dist/module.d.ts",
+  "scripts": {
+    "build": "unbuild"
+  },
+  "dependencies": {
+    "nuxt3": "latest"
+  },
+  "devDependencies": {
+    "@lewebsimple/eslint-config": "^0.2.7",
+    "@nuxt/kit": "^0.6.4",
+    "eslint": "7",
+    "unbuild": "^0.5.11"
+  },
+  "eslintConfig": {
+    "extends": "@lewebsimple/eslint-config/vue3"
+  }
+}
