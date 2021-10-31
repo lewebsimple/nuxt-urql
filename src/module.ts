@@ -1,14 +1,12 @@
 import { dirname, resolve } from "pathe";
 import { fileURLToPath } from "url";
 import { defineNuxtModule, addPluginTemplate, addTemplate } from "@nuxt/kit";
-import type { ClientOptions } from "@urql/vue";
+import { ClientOptions } from "@urql/vue";
 
-export type NuxtUrqlOptions = ClientOptions & {};
-
-export default defineNuxtModule<NuxtUrqlOptions>(() => ({
+export default defineNuxtModule<ClientOptions>(() => ({
   name: "urql",
   configKey: "urql",
-  setup(options: NuxtUrqlOptions) {
+  setup(options: ClientOptions) {
     const __dirname__ = dirname(fileURLToPath(import.meta.url));
 
     addTemplate({
@@ -21,3 +19,9 @@ export default defineNuxtModule<NuxtUrqlOptions>(() => ({
     });
   },
 }));
+
+declare module "@nuxt/kit" {
+  interface ConfigSchema {
+    urql: ClientOptions;
+  }
+}
