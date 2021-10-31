@@ -1,7 +1,8 @@
 import { createClient, Client } from "@urql/vue";
 import { ref } from "vue";
+import type { NuxtApp } from "nuxt3";
 
-export default (nuxt: any) => {
+export default (nuxt: NuxtApp) => {
   const client = createClient({
     url: "<%= options.url %>",
   });

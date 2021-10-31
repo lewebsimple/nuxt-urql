@@ -18,17 +18,21 @@
   "scripts": {
     "build": "unbuild"
   },
-  "dependencies": {
-    "@urql/vue": "^0.6.0",
-    "nuxt3": "latest"
-  },
   "devDependencies": {
     "@lewebsimple/eslint-config": "^0.2.7",
     "@nuxt/kit-edge": "latest",
     "@nuxt/types": "^2.15.8",
+    "@urql/vue": "^0.6.0",
     "eslint": "7",
+    "graphql": "^16.0.0",
+    "nuxt3": "latest",
     "pathe": "^0.2.0",
     "unbuild": "^0.5.11"
+  },
+  "peerDependencies": {
+    "graphql": "^15.0.0 || ^16.0.0",
+    "nuxt3": "^3.0.0",
+    "@urql/vue": "^0.6.0"
   },
   "eslintConfig": {
     "extends": "@lewebsimple/eslint-config/vue3"
