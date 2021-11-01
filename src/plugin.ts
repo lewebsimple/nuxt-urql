@@ -1,19 +1,20 @@
-// @ts-expect-error #app provided by Nuxt3
+// @ts-expect-error #app resolved by Nuxt3
 import { defineNuxtPlugin, NuxtApp } from "#app";
-import { createClient, Client } from "@urql/vue";
+// @ts-expect-error #build resolved by Nuxt3
+import nuxtUrqlOptions from "#build/urql.options.mjs";
+import { createClient } from "@urql/vue";
 import { ref } from "vue";
-// @ts-expect-error #build provided by Nuxt3
-import urqlOptions from "#build/urql.options.mjs";
 
 export default defineNuxtPlugin((nuxt: NuxtApp) => {
-  const client = ref(createClient(urqlOptions));
+  // Configure urql options
+  const options = {
+    url: nuxtUrqlOptions.url,
+  };
+
+  // Instantiate urql client
+  const client = ref(createClient(options));
+
+  // Provide urql client to Nuxt / vueApp
   nuxt.provide("urql", client);
   nuxt.vueApp.provide("$urql", client);
 });
-
-// @ts-expect-error Nuxt app defined at runtime
-declare module "#app" {
-  interface NuxtApp {
-    $urql: Client;
-  }
-}
