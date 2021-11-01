@@ -6,9 +6,9 @@ import { ref } from "vue";
 import urqlOptions from "#build/urql.options.mjs";
 
 export default defineNuxtPlugin((nuxt: NuxtApp) => {
-  const client = createClient(urqlOptions);
+  const client = ref(createClient(urqlOptions));
   nuxt.provide("urql", client);
-  nuxt.vueApp.provide("$urql", ref(client));
+  nuxt.vueApp.provide("$urql", client);
 });
 
 // @ts-expect-error Nuxt app defined at runtime
