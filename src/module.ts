@@ -3,7 +3,7 @@ import { fileURLToPath } from "url";
 import { defineNuxtModule, addPluginTemplate, addTemplate } from "@nuxt/kit";
 import { ClientOptions } from "@urql/vue";
 
-export default defineNuxtModule<ClientOptions>(() => ({
+export default defineNuxtModule<ClientOptions>((nuxt) => ({
   name: "urql",
   configKey: "urql",
   setup(options: ClientOptions) {
@@ -17,6 +17,8 @@ export default defineNuxtModule<ClientOptions>(() => ({
     addPluginTemplate({
       src: resolve(__dirname__, "./plugin.mjs"),
     });
+
+    nuxt.options.build.transpile.push("@urql/vue");
   },
 }));
 
