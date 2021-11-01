@@ -6,12 +6,13 @@
 
 - Basic Nuxt3 module for providing urql client
 - Configurable URL in `nuxt.config.ts`
+- SSR support with [ssrExchange](https://formidable.com/open-source/urql/docs/advanced/server-side-rendering/#the-ssr-exchange)
 
 # Install
 
 ```bash
 yarn add -D nuxt-urql @urql/vue graphql
-# npm i -D nuxt-urql @urql/vue graphq
+# npm i -D nuxt-urql @urql/vue graphql
 ```
 
 ## Usage
@@ -35,8 +36,8 @@ Refer to the `@urql/vue` [documentation](https://formidable.com/open-source/urql
 
 ## Roadmap
 
-- [ ] Configure all `@vue/urql` options from Nuxt config
-- [ ] Composable urql [exchanges](https://formidable.com/open-source/urql/docs/architecture/#the-client-and-exchanges)
+- [ ] Integration with [GraphQL Code Generator](https://www.graphql-code-generator.com/)
+- [ ] Normalized caching with [Graphcache](https://formidable.com/open-source/urql/docs/graphcache/normalized-caching/)
 - [ ] Better documentation and examples
 
 ## Credits
