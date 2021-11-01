@@ -10,8 +10,8 @@
 # Install
 
 ```bash
-yarn add -D nuxt-urql
-# npm i -D nuxt-urql
+yarn add -D nuxt-urql @urql/vue graphql
+# npm i -D nuxt-urql @urql/vue graphq
 ```
 
 ## Usage
@@ -23,13 +23,15 @@ import { defineNuxtConfig } from 'nuxt3'
 
 export default defineNuxtConfig({
   buildModules: [
-    'nuxt-windicss',
+    'nuxt-urql',
   ],
   urql: {
     url: 'https://rickandmortyapi.com/graphql/'
   }
 })
 ```
+
+Refer to the `@urql/vue` [documentation](https://formidable.com/open-source/urql/docs/basics/vue/) for more information.
 
 ## Roadmap
 
